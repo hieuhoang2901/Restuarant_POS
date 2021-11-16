@@ -18,9 +18,9 @@
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>
         <i class="fas fa-search" id="search-icon"></i>
-        <a href="#" class="fas fa-heart"></a>
         <a href="#cart" class="fas fa-shopping-cart"
             onclick="document.getElementById('cart').style.display='block'"></a>
+        <a href="/user/login" class="fas fa-heart">Log</a>
     </div>
     {{#if user}}
     <div >
@@ -37,10 +37,18 @@
             <a class="dropdown-item" href="#">List Information Feedback</a>
            
         </div>
-        <form class="header-logout" action='/user/logout' method='post'>
-            <button type='submit' name='logoutr' value=''>Logout</button>
-        </form>
+        <div>
+            <form class="header-logout" action='/user/logout' method='post'>
+                <button type='submit' name='logoutr' value=''>Logout</button>
+            </form>
+        </div>
     {{/if}}
     
 </div>
 </header>
+<style>
+    .dropdown-menu{
+        width: 100%;
+        font-size: 12px;
+    }
+</style>

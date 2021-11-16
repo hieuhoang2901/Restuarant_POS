@@ -62,7 +62,7 @@ section:nth-child(even) {
 
 .btn:hover {
     background: var(--green);
-    letter-spacing: .1rem;
+    /* letter-spacing: .1rem; */
 }
 
 header {
@@ -71,7 +71,7 @@ header {
     left: 0;
     right: 0;
     background: #fff;
-    padding: 1rem 7%;
+    padding: 1rem 9%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -130,6 +130,8 @@ header .icons #menu-bars {
 header .header-logout button {
     border: solid 2px #27ae60;
     background-color: #27ae60;
+    float: right;
+    cursor: pointer;
 }
 
 #search-form {
