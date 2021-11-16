@@ -138,9 +138,9 @@
 }
 
 #cart {
-    z-index: 3;
+    z-index: 30000000000;
     display: none;
-    padding-top: 7rem;
+    padding-top: 12rem;
     position: fixed;
     top: 0;
     width: 100%;

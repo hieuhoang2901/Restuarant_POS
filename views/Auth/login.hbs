@@ -1,19 +1,46 @@
-                {{#if error}}
-                    <p>{{error}}</p>
-                
-                {{/if}}
-               
-                    <form action="/user/login" method="post" name="form1">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email</label>
-                            <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" value="">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Password</label>
-                            <input type="password" name="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="*********" value="">
-                        </div>
-                     
-                        <input type="submit" class="btn btn-primary" value="Add">
-                        <a href="/user/register" class="btn btn-success ml-2">Register Here</a>
-                    </form>
+{{#if error}}
+    <p>{{error}}</p>
+
+{{/if}}
+    <div class="login">
+        <form action="/user/login" method="post" name="form1">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" value="">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Password</label>
+            <input type="password" name="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="*********" value="">
+        </div>
+        <div id="forgotpass">
+            <a href="">Quên mật khẩu ??</a>
+        </div>
+        
+        
+        <input type="submit" class="btn btn-primary log-btn" value="LOGIN">
+        <a href="/user/register" class="btn btn-success ml-2 register">Register Here</a>
+    </form>
+    </div>
+    <style>
+        .login{
+            width: 32rem;
+            margin: 4rem auto;
+            padding: 2rem;
+            border: 2px solid rgb(72, 195, 211);
+            border-radius: 8px;
+        }
+        #forgotpass{
+            padding-bottom: 8px;
+            text-align: right;
+        }
+        .log-btn{
+            width: 16rem;
+            box-sizing: border-box;
+        }
+        .register{
+            width: 11rem;
+            box-sizing: border-box;
+            float: right;
+        }
+    </style>
 
