@@ -1,0 +1,30 @@
+<form method="post" action="/user/manageMenu/update" enctype="multipart/form-data">
+{{#each rows}}
+<input type="hidden" value="{{this.id}}" name="id">
+<input type="hidden" value="{{this.image}}" name="imageOriginal">
+<input type="text" name="name" value="{{this.name}}">
+</br>
+<input type="text" name="description"  value="{{this.description}}">
+</br>
+<input type="text" name="price"  value="{{this.price}}">
+</br>
+<input type="text" name="type"  value="{{this.type}}">
+</br>
+<img src="/allfood/{{this.image}}" style="height: 200px; width: 200px;" id="output">
+</br>
+    <input type="file" name="image" onchange="loadFile(event) " >
+   
+</br>
+<button type="submit"  style="">Accept</button>
+{{/each}}
+</form>
+<script>
+    var loadFile = function (event) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('output');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    };
+</script>
