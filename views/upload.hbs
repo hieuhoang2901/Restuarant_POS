@@ -392,9 +392,9 @@
                             <td>{{this.type}}</td>
                           
                             <td>
-                                <a href="/user/manageMenu/update/{{this.id}}" data-id="{{this.id}}" class="edit" >{{!<i class="material-icons"
+                                <a href="/menu/update/{{this.id}}" data-id="{{this.id}}" class="edit" >{{!<i class="material-icons"
                                         data-toggle="tooltip" title="Edit">&#xE254;</i>}} Edit</a>
-                                <a href="/user/manageMenu/delete/{{this.id}}" class="delete" data-method="delete" {{!data-toggle="modal"}}>{{!<i
+                                <a href="/menu/delete/{{this.id}}" class="delete" data-method="delete" {{!data-toggle="modal"}}>{{!<i
                                         class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>}}Delete</a>
                             </td>
                         </tr>
@@ -409,7 +409,7 @@
     <div id="addEmployeeModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form method="post" action="/user/manageMenu" enctype="multipart/form-data">
+                <form method="post" action="/menu" enctype="multipart/form-data">
                     <h3>Upload New Food</h3>
                     <input type="text" name="name" placeholder="name" /><br>
                     <input type="text" name="description" placeholder="description" /><br>
