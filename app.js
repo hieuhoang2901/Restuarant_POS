@@ -14,6 +14,8 @@ var flash = require('express-flash');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 
+
+const getUser = require('./app/middleware/GetUser');
 //Passport using to authenticate for system
 var passport = require('passport');
 
@@ -30,6 +32,8 @@ var app = express();
 //set up some function to help handlebar can handle data in a easy way
 var handlerbar = require('./app/helper/handlebarhelp/handlebarhelps');
 
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', '.hbs');
@@ -45,6 +49,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'upload')));
+
+
+
 //set up file upload image
 // app.use(fileUpload());
 
@@ -55,7 +62,8 @@ app.use(session({
     saveUninitialized: false
 }))
 
-
+//using to get user after login into system, req.user will return information user
+app.use(getUser);
 
 /* Use flash to send infomation messeages to view */
 app.use(flash());
