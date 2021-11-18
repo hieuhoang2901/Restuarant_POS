@@ -9,4 +9,5 @@ router.post('/', upload.single('image'), menuController.addNewFood);
 router.get('/update/:id', menuController.getFood);
 router.post('/update', upload.single('image'), menuController.updateFood);
 router.get('/delete/:id', menuController.deleteFood);
+
 module.exports = router;

@@ -20,7 +20,6 @@ var passport = require('passport');
 const fileUpload = require('express-fileupload');
 
 //get router from folder router
-var authRouter = require('./routes/auth');
 var index = require('./routes/index');
 
 var usersRouter = require('./routes/users');
@@ -88,7 +87,6 @@ app.use(expressValidator());
 //Set router is used to direct when typing link in web
 app.use('/', index);
 app.use('/user', usersRouter);
-app.use('/auth', authRouter);
 app.use('/menu', menuRouter)
 
 
