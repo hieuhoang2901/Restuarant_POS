@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2021 at 04:14 AM
+-- Generation Time: Nov 19, 2021 at 05:23 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cmpm_db`
+-- Database: `cnpm_db`
 --
 CREATE DATABASE IF NOT EXISTS `cnpm_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `cnpm_db`;
@@ -30,13 +30,20 @@ USE `cnpm_db`;
 --
 
 CREATE TABLE `food` (
-  `dishID` int(11) NOT NULL,
-  `dishName` varchar(255) NOT NULL,
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `imageDir` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
   `price` int(11) NOT NULL,
   `type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `food`
+--
+
+INSERT INTO `food` (`id`, `name`, `description`, `image`, `price`, `type`) VALUES
+(3, 'Mon test', 'xxasdasdasdsa', '1637295334886-about-img.png', 12000, 'breakfast');
 
 -- --------------------------------------------------------
 
@@ -75,7 +82,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `name`, `address`, `phoneNumber`, `role`) VALUES
-(1, 'haha@gmail.com', '123456', 'Haha Haaa', 'Ho Chi Minh', '0556365365', 'Admin');
+(1, 'haha@gmail.com', '123456', 'Haha Haaa', 'Ho Chi Minh', '0556365365', 'Admin'),
+(2, 'akirakuma5@gmail.com', '123456', 'akirakuma', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -85,7 +93,7 @@ INSERT INTO `users` (`id`, `email`, `password`, `name`, `address`, `phoneNumber`
 -- Indexes for table `food`
 --
 ALTER TABLE `food`
-  ADD PRIMARY KEY (`dishID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `orders`
@@ -108,7 +116,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `food`
 --
 ALTER TABLE `food`
-  MODIFY `dishID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -120,7 +128,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
