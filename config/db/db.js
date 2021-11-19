@@ -2,8 +2,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'password',
-    database: 'nodelogin'
+    password: '',
+    database: 'cnpm_db'
 });
 connection.connect(function(error) {
     if (!!error) {

@@ -26,6 +26,7 @@ var index = require('./routes/index');
 
 var usersRouter = require('./routes/users');
 var menuRouter = require('./routes/menu');
+var manageUserRouter = require('./routes/manageUser');
 
 var app = express();
 
@@ -96,6 +97,7 @@ app.use(expressValidator());
 app.use('/', index);
 app.use('/user', usersRouter);
 app.use('/menu', menuRouter)
+app.use('/manageUser', manageUserRouter)
 
 
 // catch 404 and forward to error handler

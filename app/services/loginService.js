@@ -63,13 +63,13 @@ let findUserById = (id) => {
 let comparePassword = (password, userObject) => {
     return new Promise(async(resolve, reject) => {
         try {
-            await bcrypt.compare(password, userObject.password).then((isMatch) => {
-                if (isMatch) {
-                    resolve(true);
-                } else {
-                    resolve(`The password that you've entered is incorrect`);
-                }
-            });
+            
+            if (password == userObject.password) {
+                resolve(true);
+            } else {
+                resolve(`The password that you've entered is incorrect`);
+            }
+            
         } catch (e) {
             reject(e);
         }
