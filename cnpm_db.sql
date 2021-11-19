@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2021 at 05:23 AM
+-- Generation Time: Nov 19, 2021 at 05:32 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -74,7 +74,7 @@ CREATE TABLE `users` (
   `name` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `phoneNumber` varchar(255) NOT NULL,
-  `role` varchar(255) NOT NULL
+  `role` varchar(255) NOT NULL DEFAULT 'Customer'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -83,7 +83,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `password`, `name`, `address`, `phoneNumber`, `role`) VALUES
 (1, 'haha@gmail.com', '123456', 'Haha Haaa', 'Ho Chi Minh', '0556365365', 'Admin'),
-(2, 'akirakuma5@gmail.com', '123456', 'akirakuma', '', '', '');
+(2, 'akirakuma5@gmail.com', '123456', 'akirakuma', 'Binh Dinh', '0774589578', 'Admin'),
+(3, 'mytest@gmail.com', '123456', 'test user', 'Ha Noi', '05863259668', 'Customer');
 
 --
 -- Indexes for dumped tables
@@ -128,7 +129,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
