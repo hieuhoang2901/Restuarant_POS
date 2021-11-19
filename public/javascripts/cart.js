@@ -60,16 +60,17 @@ function addToCartClicked(event) {
 }
 
 function addItemToCart(title, price, imageSrc) {
-    var cartRow = document.createElement('div')
-    cartRow.classList.add('cart-row')
     var cartItems = document.getElementsByClassName('cart-items')[0]
     var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
     for (var i = 0; i < cartItemNames.length; i++) {
         if (cartItemNames[i].innerText == title) {
-            alert('This item is already added to the cart')
+            alert('Món này đã có trong giỏ.')
             return
         }
     }
+    alert('Đã thêm móm: ' + title + ' thành công');
+    var cartRow = document.createElement('div')
+    cartRow.classList.add('cart-row')
     var cartRowContents = `
         <div class="cart-item cart-column">
             <img class="cart-item-image" src="${imageSrc}" width="100" height="100">

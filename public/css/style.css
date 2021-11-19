@@ -42,6 +42,7 @@ section:nth-child(even) {
 }
 
 .heading {
+    padding: 0 9%;
     text-align: center;
     color: var(--black);
     font-size: 3rem;
@@ -194,7 +195,7 @@ header .header-logout button {
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
-    padding-top: 9rem;
+    padding-top: 6rem;
 }
 
 .home .home-slider .slide .content {
@@ -329,6 +330,8 @@ header .header-logout button {
     gap: 1.5rem;
     align-items: center;
     background-color: rgba(187, 235, 235, 0.7);
+    margin: 0;
+    padding: 0 0.5rem;
 }
 
 .about .row .image {
@@ -450,10 +453,11 @@ header .header-logout button {
 
 .menu .image-container .image .content {
     padding: 2rem;
-    background-color: #fff;
+    background-color: rgba(123, 231, 213, 0.1);
 }
 
 .menu .image-container .image .content .stars {
+    padding-top: .5rem;
     padding-bottom: 1rem;
 }
 
@@ -463,11 +467,14 @@ header .header-logout button {
 }
 
 .menu .image-container .image .content h3 {
+    /* display: none; */
+    margin-top: 1rem;
     color: var(--black);
     font-size: 2.5rem;
 }
 
 .menu .image-container .image .content p {
+    display: none;
     color: var(--light-color);
     font-size: 1.6rem;
     padding: .5rem 0;
@@ -476,7 +483,6 @@ header .header-logout button {
 
 .menu .image-container .image .content .price {
     color: var(--green);
-    margin-left: 1rem;
     font-size: 2.5rem;
 }
 
@@ -874,7 +880,7 @@ header .header-logout button {
     }
     header .navbar a {
         display: block;
-        padding: 1.5rem;
+        padding: .5rem;
         margin: 1rem;
         font-size: 2rem;
         background: #eee;
