@@ -1,23 +1,63 @@
-<form method="post" action="/menu/update" enctype="multipart/form-data">
-{{#each rows}}
-<input type="hidden" value="{{this.id}}" name="id">
-<input type="hidden" value="{{this.image}}" name="imageOriginal">
-<input type="text" name="name" value="{{this.name}}">
-</br>
-<input type="text" name="description"  value="{{this.description}}">
-</br>
-<input type="text" name="price"  value="{{this.price}}">
-</br>
-<input type="text" name="type"  value="{{this.type}}">
-</br>
-<img src="/allfood/{{this.image}}" style="height: 200px; width: 200px;" id="output">
-</br>
-    <input type="file" name="image" onchange="loadFile(event) " >
-   
-</br>
-<button type="submit"  style="">Accept</button>
-{{/each}}
-</form>
+<div class="update-form">
+    <h3>UPDATE FOOD</h3>
+    <form method="post" action="/menu/update" enctype="multipart/form-data">
+    {{#each rows}}
+    <input type="hidden" value="{{this.id}}" name="id">
+    <input type="hidden" value="{{this.image}}" name="imageOriginal">
+    <div>
+        Food-name: 
+        <input type="text" name="name" value="{{this.name}}">
+    </div>
+    </br>
+    <div>
+        Food-descriptions: 
+        <input type="text" name="description"  value="{{this.description}}">
+    </div>
+    </br>
+    <div>
+        Food-price: 
+        <input type="text" name="price"  value="{{this.price}}">
+    </div>
+    </br>
+    <div>
+        Food-type: 
+        <input type="text" name="type"  value="{{this.type}}">
+    </div>
+    </br>
+    <div>
+        Food-img:
+        <br>
+        <img src="/allfood/{{this.image}}" style="height: 200px; width: 200px;" id="output">
+    </div>
+    </br>
+        <input type="file" name="image" onchange="loadFile(event) " > 
+    </br>
+    <button type="submit"  style="">Accept</button>
+    {{/each}}
+    </form>
+</div>
+<style>
+    .update-form{
+        width: 330px;
+        height: 660px;
+        background-color: rgba(0, 255, 255, 0.2);
+        align-items: center;
+        margin: 3rem auto;
+        padding: 1rem;
+    }
+    .update-form input{
+        width: 100%;
+        
+    }
+    .update-form img{
+        float: right;
+    }
+    .update-form button{
+        float: right;
+    }
+</style>
+
+
 <script>
     var loadFile = function (event) {
         var reader = new FileReader();

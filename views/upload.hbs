@@ -50,7 +50,8 @@
         }
 
         .table-wrapper {
-            background: #fff;
+            background: rgba(187, 235, 235, 0.3);
+            margin: 0;;
             padding: 20px 25px;
             border-radius: 3px;
             min-width: 1000px;
@@ -101,7 +102,7 @@
 
         table.table tr th,
         table.table tr td {
-            border-color: #e9e9e9;
+
             padding: 12px 15px;
             vertical-align: middle;
         }
@@ -115,7 +116,6 @@
         }
 
         table.table-striped tbody tr:nth-of-type(odd) {
-            background-color: #fcfcfc;
         }
 
         table.table-striped.table-hover tbody tr:hover {
@@ -136,7 +136,7 @@
 
         table.table td a {
             font-weight: bold;
-            color: #566787;
+
             display: inline-block;
             text-decoration: none;
             outline: none !important;
@@ -271,7 +271,6 @@
 
         /* Modal styles */
         .modal .modal-dialog {
-            max-width: 400px;
         }
 
         .modal .modal-header,
@@ -312,6 +311,27 @@
         .modal form label {
             font-weight: normal;
         }
+        /* Edit Add new food form*/
+        .modal-dialog .modal-content{
+            background: rgba(255, 255, 255, 0.9);
+            display: block;
+            box-sizing: border-box;
+            border: 2px solid black;
+            padding: 1rem;
+            max-width: 400px;
+        }
+        .modal-dialog .modal-content label{
+            font-size: 20px;
+            width: 60px;
+        }
+        .text-input {
+            margin-bottom: 0.5rem;
+            width: 100%;
+        }
+        .choosen-input{
+            width: 20px;
+            height: 20px;
+        }
     </style>
     <script>
         $(document).ready(function () {
@@ -346,9 +366,12 @@
         <div class="table-responsive">
             <div class="table-wrapper">
                 <div class="table-title">
-                        <a href="/">Back to Home</a>
+                        <a href="/">
+                            <i class="fa fa-arrow-left"></i>
+                            Back to Home
+                        </a>
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" style="display: block; color:black">
                             <h2>Manage <b>Food</b></h2>
                         </div>
                         <div class="col-sm-6">
@@ -411,27 +434,29 @@
             <div class="modal-content">
                 <form method="post" action="/menu" enctype="multipart/form-data">
                     <h3>Upload New Food</h3>
-                    <input type="text" name="name" placeholder="name" /><br>
-                    <input type="text" name="description" placeholder="description" /><br>
-                    <input type="text" name="price" placeholder="price" /><br>
-                    <input type="radio" id="breakfast" name="type_food" value="breakfast" checked>
+                    <input type="text" class="text-input" name="name" placeholder="name"><br>
+                    <input type="text" class="text-input" name="description" placeholder="description"><br>
+                    <input type="text" class="text-input" name="price" placeholder="price" /><br>
+                    <input type="radio" class="choosen-input" id="breakfast" name="type_food" value="breakfast" checked>
                       <label for="breakfast">breakfast</label>
-                      <input type="radio" id="dinner" name="type_food" value="dinner">
+                    <br>
+                    <input type="radio" class="choosen-input" id="dinner" name="type_food" value="dinner">
                       <label for="dinner">dinner</label>
-                      <input type="radio" id="dessert" name="type_food" value="dessert">
+                    <br>
+                    <input type="radio" class="choosen-input" id="dessert" name="type_food" value="dessert">
                       <label for="dessert">dessert</label>
-                    <input type="radio" id="juice" name="type_food" value="juice">
+                    <br>
+                    <input type="radio" class="choosen-input" id="juice" name="type_food" value="juice">
                       <label for="juice">juice</label>
-                      <input type="radio" id="lunch" name="type_foode" value="lunch">
+                    <br>
+                    <input type="radio" class="choosen-input" id="lunch" name="type_food" value="lunch">
                       <label for="lunch">lunch</label>
                     </br>
                     <img src="" style="height: 200px; width: 200px;" id="output">
                     </br>
-                    <input type="file" name="image" onchange="loadFile(event) ">
-                    <button>ADD</button>
-                </form>
-
-                
+                    <input type="file" name="image" onchange="loadFile(event)">
+                    <button style="position: absolute; right:0; bottom:0; margin: 0 1rem 1rem 0">ADD</button>
+                </form>       
             </div>
         </div>
     </div>

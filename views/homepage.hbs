@@ -526,7 +526,7 @@
 
         function ready() {
             var input = document.getElementById('quantity-input')
-            input.addEventListener('change', quantityChanged)
+            input.addEventListener('change', itemQuantityChanged)
 
             var detailBtns = document.getElementsByClassName('shop-item-title')
             for (var i = 0; i < detailBtns.length; i++) {
@@ -535,7 +535,7 @@
             }
         }
 
-        function quantityChanged(event) {
+        function itemQuantityChanged(event) {
             var input = event.target
             if (isNaN(input.value) || input.value <= 0) {
                 input.value = 1
@@ -570,6 +570,7 @@
             updateTotal()
         }
         function updateTotal() {
+            console.log("update")
             var item = document.getElementById('item-detail')
             var itemPrice = item.querySelector('#item-price')
             var price = itemPrice.querySelector('span').innerText

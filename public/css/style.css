@@ -394,7 +394,7 @@ header .header-logout button {
 
 .menu {
     padding: 2rem 3%;
-    min-height: 100vh;
+    min-height: 60vh;
     background: url("https://pepperonis.com.vn/bg-all.aee0155aaac5cc9f712b.jpg") center center/contain repeat;
     /* background-color: #27ae60; */
     width: 100%;
