@@ -1,0 +1,50 @@
+<form action="/cart">
+<div id="cart" class="w3modal" style="display: none;">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+        <span onclick="document.getElementById('cart').style.display='none'"
+            class=" w3-button  w3-xlarge w3-display-topright">×</span>
+        <h2 class="section-header">CART</h2>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">ITEM</span>
+            <span class="cart-price cart-header cart-column">PRICE</span>
+            <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+        </div>
+        <div class="cart-items">
+            {{#if session.cart.totalItems}}
+            {{#each session.cart.items}}
+            <div class="cart-row">
+                <div class="cart-item cart-column">
+                     <img class="cart-item-image" src="/allFood/{{this.item.image}}" width="100" height="100">
+                     <span class="cart-item-title">{{this.item.name}}</span>
+                </div>
+                    <span class="cart-price cart-column">{{this.item.price}}</span>
+                     <div class="cart-quantity cart-column">
+                         <span class="cart-quantity-input">{{this.quantity}}</span>  
+                     </div>
+             </div>
+            {{/each}}
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">{{session.cart.totalPrice}}</span>
+            </div>
+        </div>
+        {{/if}}
+        <button  class="btn btn-primary btn-purchase" type="submit">PROCEED</button>
+    </div>
+</div>
+</div>
+</form>
+<form action="{{this.id}}" method="post">
+{{#each rows}}
+<input name="id" value="{{this.id}}" type="hidden">
+<p>{{this.name}}</p>
+<img src="/allFood/{{this.image}}">
+</br>
+<div style="width: 500px;">
+<input style="border: 1px solid green; width: 100px; height: 25px;"  name="quantity" type="number" value="1">
+<p style="font-size: large;">{{this.description}}</p>
+{{/each}}
+</div>
+<button style="width: 100px; height: 50px;" type="submit">Add to Cart</button>
+<a href="/">Back to home</a>
+</form>

@@ -27,7 +27,8 @@ var index = require('./routes/index');
 var usersRouter = require('./routes/users');
 var menuRouter = require('./routes/menu');
 var manageUserRouter = require('./routes/manageUser');
-
+var itemRouter = require('./routes/item');
+var cartRouter = require('./routes/cart');
 var app = express();
 
 //set up some function to help handlebar can handle data in a easy way
@@ -98,7 +99,8 @@ app.use('/', index);
 app.use('/user', usersRouter);
 app.use('/menu', menuRouter)
 app.use('/manageUser', manageUserRouter)
-
+app.use('/item', itemRouter);
+app.use('/cart', cartRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
