@@ -31,9 +31,9 @@ var itemRouter = require('./routes/item');
 var cartRouter = require('./routes/cart');
 var app = express();
 
+
 //set up some function to help handlebar can handle data in a easy way
 var handlerbar = require('./app/helper/handlebarhelp/handlebarhelps');
-
 
 
 // view engine setup
