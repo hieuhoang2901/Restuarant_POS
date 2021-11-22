@@ -1,3 +1,4 @@
+{{!-- <link rel="stylesheet" href="cart.css"> --}}
 <form action="/cart">
 <div id="cart" class="w3modal" style="display: none;">
     <div class="w3-modal-content w3-animate-top w3-card-4">
@@ -19,7 +20,7 @@
                 </div>
                     <span class="cart-price cart-column">{{this.item.price}}</span>
                      <div class="cart-quantity cart-column">
-                         <span class="cart-quantity-input">{{this.quantity}}</span>  
+                         <input class="cart-quantity-input" value="{{this.quantity}}"></input>  
                      </div>
              </div>
             {{/each}}
@@ -34,17 +35,39 @@
 </div>
 </div>
 </form>
-<form action="{{this.id}}" method="post">
-{{#each rows}}
-<input name="id" value="{{this.id}}" type="hidden">
-<p>{{this.name}}</p>
-<img src="/allFood/{{this.image}}">
-</br>
-<div style="width: 500px;">
-<input style="border: 1px solid green; width: 100px; height: 25px;"  name="quantity" type="number" value="1">
-<p style="font-size: large;">{{this.description}}</p>
-{{/each}}
+
+<div id="view-item-form">
+    <form action="{{this.id}}" method="post">
+    {{#each rows}}
+        <div style="display: flex;">
+            <div style="box-sizing: border-box; width: 500px; height: 300px; padding: 1.5rem 1rem"><img style="width: 480px; height: 270px;" src="/allFood/{{this.image}}"></div>
+            <div style="box-sizing: border-box; padding: 1.5rem 3rem;">
+                <input name="id" value="{{this.id}}" type="hidden">
+                <h1>{{this.name}}</h1>
+                <h3>{{this.type}}</h3>
+                </br>
+                <div style="height: 100px; width: 100%;"><p style="font-size: 15px;">{{this.description}}</p></div>
+                <div style="font-size: 15px; margin-top: 1rem;">
+                    Quantity: <input style="border: 1px solid green; width: 60px; height: 30px; font-size:2rem; text-align:center;"  name="quantity" type="number" value="1">
+                </div>
+                <button style="font-size: 17px; padding: 0.5rem 1rem; margin: 1rem 2rem 0 0; border-radius: 0.5rem"  type="submit"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                <a href="/" style="font-size: 15px;">Back to home</a>
+            </div>
+        </div>
+    {{/each}}
+    </form>
 </div>
-<button style="width: 100px; height: 50px;" type="submit">Add to Cart</button>
-<a href="/">Back to home</a>
-</form>
+<style>
+    #view-item-form{
+        padding: 9rem 9% 2rem 9%;
+    }
+    #view-item-form button:hover{
+        cursor: pointer;
+        background-color: var(--green);
+        color: white;
+        text-decoration: underline;
+    }
+    #view-item-form a:hover{
+        font-size: 17px;
+    }
+</style>
