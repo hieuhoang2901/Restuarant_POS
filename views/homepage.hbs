@@ -22,7 +22,7 @@
                     </div>
                     <span class="cart-price cart-column">{{this.item.price}}</span>
                     <div class="cart-quantity cart-column">
-                        <span class="cart-quantity-input">{{this.quantity}}</span>
+                        <input class="cart-quantity-input" value="{{this.quantity}}"></input>
                     </div>
                 </div>
                 {{/each}}
@@ -39,31 +39,31 @@
 </form>
        
 
-    <div id="item-box">
-        <div id="item-detail">
-            <div id="detail-header">
-                <span onclick="document.getElementById('item-box').style.display='none'" id="item-close">×</span>
-                <h2 class=""><i class="fa fa-shopping-cart" id="detail-content"></i> ADD TO CART</h2>
-            </div>
-            <div id="item-flex" style="display: flex;">
-                <img src="" id="item-img" alt="">
-                <div id="item-detail-content">
-                    <div id="item-id" style="display: none;"></div>
-                    <div id="item-name">Tên món ăn: <span></span></div>
-                    <div id="item-type">Nhóm thực đơn: <span></span></div>
-                    <div id="item-price">Giá: <span></span></div>
-                    <div id="item-description">Mô tả: <span></span></div>
-                    <div id="item-quantity">Số lượng: <input id="quantity-input" type="number" value="1"></div>
-                    <div id="item-note">Ghi chú: <input type="text" placeholder="Ghi chú món ăn"></div>
-                    <button id="add-item-btn">
-                        <i class="fa fa-shopping-cart" id="detail-content"></i>
-                        <span id="total-price">0</span>
-                        VND
-                    </button>
-                </div>
-            </div>
+{{!-- <div id="item-box">
+<div id="item-detail">
+    <div id="detail-header">
+        <span onclick="document.getElementById('item-box').style.display='none'" id="item-close">×</span>
+        <h2 class=""><i class="fa fa-shopping-cart" id="detail-content"></i> ADD TO CART</h2>
+    </div>
+    <div id="item-flex" style="display: flex;">
+        <img src="" id="item-img" alt="">
+        <div id="item-detail-content">
+            <div id="item-id" style="display: none;"></div>
+            <div id="item-name">Tên món ăn: <span></span></div>
+            <div id="item-type">Nhóm thực đơn: <span></span></div>
+            <div id="item-price">Giá: <span></span></div>
+            <div id="item-description">Mô tả: <span></span></div>
+            <div id="item-quantity">Số lượng: <input id="quantity-input" type="number" value="1"></div>
+            <div id="item-note">Ghi chú: <input type="text" placeholder="Ghi chú món ăn"></div>
+            <button id="add-item-btn">
+                <i class="fa fa-shopping-cart" id="detail-content"></i>
+                <span id="total-price">0</span>
+                VND
+            </button>
         </div>
     </div>
+</div>
+</div> --}}
 
     <!-- search form  -->
 
