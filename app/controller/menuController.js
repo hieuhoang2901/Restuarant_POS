@@ -48,7 +48,7 @@ class menuController {
         var name = req.body.name;
         var description = req.body.description;
         var price = parseInt(req.body.price);
-        var type = req.body.type;
+        var type = req.body.type_food;
         var image;
 
         //delete image
