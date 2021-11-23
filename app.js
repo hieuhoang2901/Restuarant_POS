@@ -27,6 +27,7 @@ var index = require('./routes/index');
 var usersRouter = require('./routes/users');
 var menuRouter = require('./routes/menu');
 var manageUserRouter = require('./routes/manageUser');
+var manageFeedbackRouter = require('./routes/manageFeedback');
 var itemRouter = require('./routes/item');
 var cartRouter = require('./routes/cart');
 var app = express();
@@ -99,6 +100,7 @@ app.use('/', index);
 app.use('/user', usersRouter);
 app.use('/menu', menuRouter)
 app.use('/manageUser', manageUserRouter)
+app.use('/manageFeedback', manageFeedbackRouter)
 app.use('/item', itemRouter);
 app.use('/cart', cartRouter);
 
