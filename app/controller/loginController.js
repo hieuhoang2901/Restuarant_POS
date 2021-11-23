@@ -46,7 +46,7 @@ let checkLoggedOut = (req, res, next) => {
 let postLogOut = (req, res) => {
 
     req.session.destroy(function(err) {
-        return res.redirect('login');
+        return res.redirect('/');
     });
 };
 

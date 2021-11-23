@@ -1,7 +1,7 @@
 <!-- header section starts      -->
 
 <header>
- 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <a href="#" class="logo"><i class="fas fa-utensils"></i>resto.</a>
 
     <nav class="navbar">
@@ -17,11 +17,11 @@
         <i class="fas fa-search" id="search-icon"></i>
         <a href="#cart" class="fas fa-shopping-cart"
             onclick="document.getElementById('cart').style.display='block'"></a>
-        {{#if user}}
+        {{!-- {{#if user}}
         <a></a>
         {{else}}
-            <a href="/user/login" class="fas fa-heart">Log</a>
-        {{/if}}
+            <a href="/user/login">Login</a>
+        {{/if}} --}}
     </div>
     {{#if user}}
     <div >
@@ -34,22 +34,36 @@
             <a class="dropdown-item" href="#">User Information</a>
             <a class="dropdown-item" href="/manageUser">Manage User</a>
             <a class="dropdown-item" href="/menu">Manage Menu</a>
-            <a class="dropdown-item" href="#">List Information Feedback</a>
+            <a class="dropdown-item" href="/manageFeedback">List Information Feedback</a>
            
         </div>
         <div style="margin: 2rem 0 0 1rem; border-radius: .5rem;">
-            <form class="header-logout" action='/user/logout' method='post'>
-                <button type='submit' name='logoutr' value='' style="padding: 2px; font-size:12px; border-radius: .5rem; background-color: red;">
-                    SIGN OUT
-                    {{!-- <i class="fa fa-sign-out" style="font-size: 15px; width: 15px; height:15px; display:block"></i> --}}
-                </button>
+            <form action='/user/logout' method='post'>
+                <button type='submit' name='logoutr' value='' class="sign-out-btn"> SIGN OUT <i class="fa fa-sign-out"></i></button>
             </form>
         </div>
+    {{else}}
+    <nav class="navbar">
+        <a href="/user/login">Login</a>
+        <a href="/user/register">Register</a>
+    </nav>
     {{/if}}
     
 </div>
 </header>
 <style>
+    .sign-out-btn {
+        font-weight: bold;
+        padding: 3px;
+        font-size: 12px;
+        border-radius: .5rem;
+        color:white;
+        background-color: rgb(255, 0, 0);
+        outline: none;
+    }
+    .sign-out-btn:hover {
+        background-color: rgb(240, 96, 96);
+    }
     .dropdown-menu{
         width: 100%;
         font-size: 15px;
