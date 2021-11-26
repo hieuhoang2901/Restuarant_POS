@@ -11,30 +11,65 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/cash', function(req, res, next) {
-    res.render('payment/bill', { user: req.user, layout: 'index' })
+    res.render('payment/cash', { user: req.user, layout: 'main', mode: 'cash' })
 });
 
 router.post('/cash', function(req, res, next) {
     var userName = req.user.name;
     var userID = req.user.id;
     var totalCost = req.session.cart.totalPrice;
-    var orderStatus = 'Dang chuan bi';
+    var orderStatus = 'preparing';
     var cart = new Cart(req.session.cart ? req.session.cart : {});
     var items = cart.getItems();
-    var list = [];
-    var itemList = [];
-    for (let i = 0; i < items.length; i++) {
-        itemList.push([items[i].item.name, items[i].quantity]);
-    }
-    console.log(itemList)
-        // orderServices.saveOrder(userName, userID, totalCost, orderStatus).then(async function(rows) {
-        //     try {
-        // rows.insertId
-        //     } catch (err) {
-        //         console.log(err);
-        //     }
-        // });
 
+    orderServices.saveOrder(userName, userID, totalCost, orderStatus).then(async function(rows) {
+        try {
+            listItemOrderServices.saveListItem(rows.insertId, items).then(async function(rows) {
+                try {
+                    res.render('feedback/formFeedback', { layout: 'index', user: req.user })
+
+                } catch (err) {
+                    console.log(err);
+                }
+            })
+        } catch (err) {
+            console.log(err);
+        }
+    });
+
+});
+
+
+router.get('/online', function(req, res, next) {
+    console.log(req.session.cart);
+    res.render('payment/online', { layout: 'main', user: req.user, mode: 'online' });
+});
+
+router.post('/online', function(req, res, next) {
+    var userName = req.user.name;
+    var userID = req.user.id;
+    var totalCost = req.session.cart.totalPrice;
+    var orderStatus = 'preparing';
+    var feedback = req.body.comment;
+    console.log(req.body)
+    var cart = new Cart(req.session.cart ? req.session.cart : {});
+    var items = cart.getItems();
+
+    orderServices.saveOrder(userName, userID, totalCost, orderStatus, feedback).then(async function(rows) {
+        try {
+            listItemOrderServices.saveListItem(rows.insertId, items).then(async function(rows) {
+                try {
+                    req.session.cart = {};
+                    res.redirect('/');
+
+                } catch (err) {
+                    console.log(err);
+                }
+            })
+        } catch (err) {
+            console.log(err);
+        }
+    });
 });
 
 module.exports = router;

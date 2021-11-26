@@ -1,0 +1,73 @@
+//write some code here .....
+<div class="main">
+    <div class="wrapper_item ">
+        {{#each rows}}
+        <div class="item">
+            <div class="item_header">
+                <p><strong>OrderID : {{this.orderID}}</strong></p>
+                <a href="#">
+                <img src="/images/car.png" alt="">
+                    <span>Đang chuẩn bị</span>
+                </a>
+                <div class="drop_down">
+                    <input class="orderID" type="hidden" value="{{this.orderID}}">
+                    <span class="preparing">Đang chuẩn bị</span>
+                    <span class="complete">Đã hoàn thành</span>
+                </div>
+            </div>
+            {{#each items}}
+            <div class="item_content">
+                <div class="image_item">
+                    <img src="/allfood/{{this.image}}" alt="">
+                </div>
+                <div class="info_item">
+                    <span>{{this.name}}</span>
+                    <div class="qty">x<span>{{this.quantity}}</span> </div>
+                </div>
+                <div class="price_item">
+                    <span>{{this.price}} $</span>
+                </div>
+            </div>
+            {{/each}}
+            <div class="item_footer">
+                <div class="feedback">
+                    <span>{{this.feedback}}</span>
+                </div>
+                <div class="right">
+                    <div class="total_item">
+                        <p><span>Tổng số tiền:</span> <span>{{this.totalCost}}</span></p>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    {{/each}}
+    </div>
+
+</div>
+
+<script>
+     if (document.readyState == 'loading') {
+     document.addEventListener('DOMContentLoaded', ready)
+ } else {
+     ready()
+ }
+
+ function ready(){
+     var spanComplete = document.getElementsByClassName('complete');
+     for (var i = 0; i < spanComplete.length; i++) {
+         var span = spanComplete[i];
+         span.addEventListener('click', changeStatus)
+     }
+ }
+
+
+ function changeStatus(even){
+     var spanClicked = event.target;
+    var orderID = spanClicked.parentElement.getElementsByClassName('orderID')[0].value;
+     window.location.replace(`http://localhost:3000/manageOrder/${orderID}`);
+
+ }
+
+
+</script>

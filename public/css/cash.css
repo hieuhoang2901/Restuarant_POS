@@ -1,0 +1,262 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.container {
+    background-color: #fff;
+    width: 100%;
+    position: relative;
+    height: 100vh;
+}
+
+.container.active {
+    overflow: hidden;
+}
+
+.row_main {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-wrap: wrap;
+    position: relative;
+}
+
+
+/* payment_info */
+
+.order {
+    margin-top: 7rem;
+    width: 60rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    height: 100vh;
+    overflow: auto;
+    background: linear-gradient(to bottom, #f1f4f9, #dff1ff);
+    position: relative;
+}
+
+.order::-webkit-scrollbar {
+    display: none;
+}
+
+.order h2 {
+    font-size: 2.2rem;
+    border-bottom: 1px solid #000;
+    padding-bottom: 1rem;
+}
+
+.order .products {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-bottom: 1px solid #000;
+}
+
+.order .product {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.order .image {
+    width: 100px;
+    height: 100px;
+}
+
+.order .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.order .product_detail span {
+    display: block;
+    font-size: 1.5rem;
+}
+
+.order .ship {
+    padding: 2rem 0;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+}
+
+.order .delivery {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order .delivery span {
+    font-size: 1.5em;
+}
+
+.order .discount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order .discount span {
+    font-size: 1.5em;
+}
+
+.order .total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order .total strong {
+    font-size: 2em;
+}
+
+.btn_confirm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.btn_confirm button {
+    background-color: orange;
+    padding: 1.5rem 3rem;
+    border: none;
+    outline: none;
+    border-radius: 5rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.popup h2,
+.feedback h2 {
+    font-size: 2rem;
+}
+
+.popup p,
+.feedback p {
+    font-size: 1.8rem;
+    text-align: center;
+    line-height: 2;
+    font-weight: bold;
+}
+
+section button {
+    position: relative;
+    padding: 1.5rem 2.5rem;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.popup {
+    z-index: 100;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50rem;
+    height: 35rem;
+    box-shadow: 0 2.5rem 5rem rgba(0, 0, 0, 0.1), 0 0 0 1000px rgba(255, 255, 255, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+    visibility: hidden;
+    flex-direction: column;
+    background: url("https://image.freepik.com/free-vector/realistic-emoji-party-background_79603-1587.jpg") center center /cover no-repeat;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.popup.active {
+    visibility: visible;
+}
+
+.close,
+.close_fb {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem 2rem;
+    background: #f00;
+    color: #fff;
+    cursor: pointer;
+    /* z-index: 10000000000000; */
+}
+
+.feedback {
+    z-index: 100;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 50rem;
+    height: 35rem;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1), 0 0 0 1000px rgba(255, 255, 255, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+    visibility: hidden;
+    flex-direction: column;
+    background: url("https://image.freepik.com/free-vector/realistic-emoji-party-background_79603-1587.jpg") center center /cover no-repeat;
+}
+
+.fa-times-circle {
+    display: inline-block;
+    font-size: 2rem;
+}
+
+.feedback.active {
+    visibility: visible;
+}
+
+.feedback .send {
+    position: absolute;
+    bottom: .5rem;
+    right: 6rem;
+    padding: 1rem 2rem;
+    background: #f00;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.feedback textarea {
+    width: 90%;
+    outline: none;
+    padding: 1rem;
+    height: 15rem;
+    margin-top: 1rem;
+}
+
+#my-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#my-canvas.active {
+    visibility: visible;
+}

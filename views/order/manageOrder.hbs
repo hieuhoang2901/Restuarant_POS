@@ -1,0 +1,46 @@
+
+
+
+<div class="main">
+    <div class="wrapper_item ">
+     {{#each rows}}
+        <div class="item">
+            <div class="item_header">
+                <p><strong>OrderID : {{this.orderID}}</strong></p>
+                <a href="#">
+                    <img src="/images/car.png" alt="">
+                    <span>{{this.orderStatus}}</span>
+                </a>
+            </div>
+
+            {{#each items}}
+            <div class="item_content">
+                <div class="image_item">
+                    <img src="/allfood/{{this.image}}" alt="">
+                </div>
+                <div class="info_item">
+                    <span>{{this.name}}</span>
+                    <div class="qty">x<span>{{this.quantity}}</span> </div>
+                </div>
+                <div class="price_item">
+                    <span>{{this.price}} $</span>
+                </div>
+            </div>
+        {{/each}}
+            <div class="item_footer">
+                <div class="feedback">
+                    <span>Feedback : {{this.feedback}}</span>
+                </div>
+                <div class="right">
+                    <div class="total_item">
+                        <p><span>Tổng số tiền:</span> <span>{{this.totalCost}} $</span></p>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    {{/each}}
+    </div>
+   
+
+</div>
