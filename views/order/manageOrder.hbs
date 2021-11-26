@@ -1,12 +1,14 @@
 
-
-
 <div class="main">
-    <div class="wrapper_item ">
+    <div>
+        MANAGE ORDERS
+    </div>
+    <div class="wrapper_item" style="border-radius: .5rem;">
      {{#each rows}}
         <div class="item">
             <div class="item_header">
                 <p><strong>OrderID : {{this.orderID}}</strong></p>
+                <p><srrong>UserID: {{this.userID}}</srrong></p>
                 <a href="#">
                     <img src="/images/car.png" alt="">
                     <span>{{this.orderStatus}}</span>
@@ -41,6 +43,4 @@
         </div>
     {{/each}}
     </div>
-   
-
 </div>

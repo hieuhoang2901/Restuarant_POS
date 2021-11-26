@@ -9,9 +9,11 @@ module.exports = function Cart(cart) {
             cartItem = this.items[id] = { item: item, quantity: 0, price: 0 };
         }
         cartItem.quantity += quantity;
+        let temp = cartItem.price;
         cartItem.price = cartItem.item.price * cartItem.quantity;
         this.totalItems++;
         this.totalPrice += cartItem.price;
+        this.totalPrice -= temp;
     };
 
     this.update = function(id, quantity) {
