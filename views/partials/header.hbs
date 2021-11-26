@@ -27,7 +27,7 @@
     <div >
     <div class="dropdown show" style="display:inline-flex;">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
+            aria-haspopup="true" aria-expanded="false" >
             {{user.name}}
         </a> 
         {{#if_eq user.role 'Admin'}}
@@ -94,5 +94,8 @@
     }
     .dropdown-toggle{
         min-width: 16rem !important;
+    }
+    .dropdown:hover .dropdown-menu{
+        display: block;
     }
 </style>
