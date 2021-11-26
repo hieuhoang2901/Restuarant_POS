@@ -3,7 +3,7 @@ var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'cnpm2_db'
+    database: 'cnpm_db'
 });
 connection.connect(function(error) {
     if (!!error) {

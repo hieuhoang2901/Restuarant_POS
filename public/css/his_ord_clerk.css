@@ -18,9 +18,11 @@ html {
 } */
 
 .main {
+    margin-top: 52.5px;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 360px;
 }
 
 .wrapper_item {
@@ -29,8 +31,8 @@ html {
     /* align-items: center; */
     flex-direction: column;
     gap: 2rem;
-    width: 80%;
-    margin: 8rem 0;
+    width: 82%;
+    margin: 2rem 0;
 }
 
 .item {
