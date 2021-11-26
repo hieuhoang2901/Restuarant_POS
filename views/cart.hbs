@@ -32,12 +32,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    {{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
     <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+
     <style>
         body {
             color: #566787;
@@ -52,8 +55,7 @@
 
         .table-wrapper {
             background: rgba(187, 235, 235, 0.3);
-            margin: 0;
-            ;
+            margin-top: 67.5px;
             padding: 20px 25px;
             border-radius: 3px;
             min-width: 1000px;
@@ -62,7 +64,6 @@
 
         .table-title {
             padding-bottom: 15px;
-            background: var(--black);
             color: #fff;
             padding: 16px 30px;
             min-width: 100%;
@@ -337,7 +338,7 @@
             height: 20px;
         }
         .w3-modal-content{
-            width: 420px !important;
+            width: 450px !important;
         }
         .btn-payment{
             margin: 12px 15px;
@@ -378,20 +379,14 @@
 </head>
 
 <body>
+    {{>header}}
     <div class="container-xl">
         <div class="table-responsive">
-            <div class="table-wrapper">
+            <div class="table-wrapper" style="min-height: 360px; position: relative;">
                 <div class="table-title">
-                    <a href="/">
-                        <i class="fa fa-arrow-left"></i>
-                        Back to Home
-                    </a>
                     <div class="row">
                         <div class="col-sm-6" style="display: block; color:black">
                             <h2 >Cart <b>Purchase</b></h2>
-                        </div>
-                        <div>
-                            <h2 id="payment-btn" onclick="document.getElementById('cart').style.display='block'">Payment</h2>
                         </div>
                     </div>
                 </div>
@@ -441,15 +436,18 @@
                         {{/if}}
                     </tbody>
                 </table>
+                <div style="position: absolute; right: 25px; bottom: 20px;">
+                    <h2 id="payment-btn" onclick="document.getElementById('cart').style.display='block'" style="border-bottom: 1px solid var(--green); font-size:30px;">Payment</h2>
+                </div>
             </div>
         </div>
     </div>
 
 <form action="/payment/cash">
-    <div id="cart" class="w3modal" style="display: none;">
-        <div class="w3-modal-content w3-animate-top w3-card-4">
+    <div id="cart" class="w3-modal" style="display: none; background-color:;">
+        <div class="w3-modal-content w3-animate-top w3-card-4" style=" background-color:#fff; border-radius:.5rem;">
             <span onclick="document.getElementById('cart').style.display='none'"
-                class=" w3-button  w3-xlarge w3-display-topright">×</span>
+                class=" w3-button w3-xlarge w3-display-topright" style="border-top-right-radius: .5rem;">×</span>
             <h2 class="section-header">Payment</h2>
             <a href="/payment/online" class="btn btn-primary btn-payment" >Thanh toán Online</a>
             <button class="btn btn-primary btn-payment">Thanh toán tại nhà hàng</button>
@@ -460,7 +458,7 @@
 
     <!-- Edit Modal HTML -->
    
-
+{{>footer}}
 </body>
 <script>
     var loadFile = function (event) {

@@ -768,7 +768,7 @@ header .header-logout button {
 
 .footer .box-container .box {
     flex: 1 1 23rem;
-    margin: 2rem;
+    margin: 0rem 2rem;
 }
 
 .footer .box-container .box .heading {

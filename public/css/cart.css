@@ -129,7 +129,7 @@
 }
 
 .w3-button {
-    padding: 0 16px;
+    padding: 0 10px;
     background-color: var(--green);
 }
 
@@ -149,6 +149,6 @@
 }
 
 .w3-modal-content {
-    background-color: rgba(223, 199, 199, 0.9);
+    background-color: rgba(187, 235, 235, 0.7);
     /* width: 400px; */
 }

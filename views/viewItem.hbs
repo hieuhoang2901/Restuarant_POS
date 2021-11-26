@@ -36,19 +36,19 @@
 </div>
 </form>
 
-<div id="view-item-form">
+<div id="view-item-form" >
     <form action="{{this.id}}" method="post">
     {{#each rows}}
-        <div style="display: flex;">
-            <div style="box-sizing: border-box; width: 500px; height: 300px; padding: 1.5rem 1rem"><img style="width: 480px; height: 270px;" src="/allFood/{{this.image}}"></div>
-            <div style="box-sizing: border-box; padding: 1.5rem 3rem;">
+        <div style="display: flex; background-color: rgba(253, 253, 253, 0.7);">
+            <div style="box-sizing: border-box; width: 500px; height: 300px; padding: 1.5rem 8rem"><img style="width: 340px; height: 270px; " src="/allFood/{{this.image}}"></div>
+            <div style="box-sizing: border-box; padding: 1.5rem 2rem 1.5rem 0; width: 410px;">
                 <input name="id" value="{{this.id}}" type="hidden">
-                <h1>{{this.name}}</h1>
-                <h3>{{this.type}}</h3>
-                </br>
-                <div style="height: 100px; width: 100%;"><p style="font-size: 15px;">{{this.description}}</p></div>
+                <h2><span style="font-size: 15px;">Produce name: </span>{{this.name}}</h2>
+                <h3><span style="font-size: 15px;">Category: </span>{{this.type}}</h3>
+                <div style="height: 100px; width: 100%;"><p style="font-size: 15px;"><span>Details: </span>{{this.description}}</p></div>
+                <h3><span style="font-size: 15px;">Price: </span>{{this.price}} VND</h3>
                 <div style="font-size: 15px; margin-top: 1rem;">
-                    Quantity: <input style="border: 1px solid green; width: 60px; height: 30px; font-size:2rem; text-align:center;"  name="quantity" type="number" value="1">
+                    <span style="font-size: 15px;">Quantity: </span> <input style="border: 1px solid green; width: 50px; height: 30px; font-size:1.7rem; text-align:center;"  name="quantity" type="number" value="1">
                 </div>
                 <button style="font-size: 17px; padding: 0.5rem 1rem; margin: 1rem 2rem 0 0; border-radius: 0.5rem"  type="submit"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
                 <a href="/#menu" style="font-size: 15px; border-bottom: 2px solid var(--green);">Back to Menu</a>
@@ -59,7 +59,10 @@
 </div>
 <style>
     #view-item-form{
-        padding: 9rem 9% 2rem 9%;
+        margin-top: 67.5px;
+        min-height: 360px;
+        padding: 2rem 20%;
+        background: url(https://pepperonis.com.vn/bg-all.aee0155aaac5cc9f712b.jpg) center center/contain repeat;
     }
     #view-item-form button:hover{
         cursor: pointer;
