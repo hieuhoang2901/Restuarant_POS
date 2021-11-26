@@ -1,11 +1,12 @@
 var connection = require('../../config/db/db');
 
-let saveOrder = (userName, userID, totalCost, orderStatus) => {
+let saveOrder = (userName, userID, totalCost, orderStatus, feedback) => {
     let orderItem = {
         userName: userName,
         userID: userID,
         totalCost: totalCost,
-        orderStatus: orderStatus
+        orderStatus: orderStatus,
+        feedback: feedback
     }
 
     return new Promise((resolve, reject) => {
@@ -25,7 +26,30 @@ let saveOrder = (userName, userID, totalCost, orderStatus) => {
     });
 }
 
+let getFeedback = () => {
+
+    return new Promise((resolve, reject) => {
+        try {
+            connection.query(
+                'SELECT * FROM orders where (feedback is not null and not feedback = "") LIMIT 4',
+                function(err, rows) {
+                    if (err) {
+                        reject(err)
+                    }
+                    console.log(rows)
+                    resolve(rows);
+                }
+            );
+        } catch (err) {
+            reject(err);
+        }
+    });
+}
+
+
+
 
 module.exports = {
-    saveOrder: saveOrder
+    saveOrder: saveOrder,
+    getFeedback: getFeedback
 };

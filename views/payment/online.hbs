@@ -1,0 +1,151 @@
+<link rel="stylesheet" href="/css/payment.css">
+
+    <div class="row_main">
+
+        <div class="popup">
+            <div class="title">
+                <span>🎊</span>
+                <h2> Thank You </h2>
+                <span>🎊</span>
+            </div>
+            <p>Chân thành cảm ơn Quý khách đã ủng hộ sản phẩm của chúng tôi. Rất mong được phục vụ Quý khách lần tới. Chúc Quý khách sức khỏe & niềm vui!
+            </p> <span>💓</span>
+            <span class="close"><i class="fas fa-times-circle"></i></span>
+        </div>
+        <div class="feedback">
+            <form action="/payment/online" method="post">
+                <div class="title">
+                    <span>🎊</span>
+                    <h2>Feedback</h2>
+                    <span>🎊</span>
+                </div>
+                <p>Quý khách để lại phản hồi của mình tại đây </p> <span>💓</span>
+                <textarea name="comment1" id="comment1" cols="30" rows="10" style="display: none;"></textarea>
+                <textarea name="comment" id="comment" cols="30" rows="10"
+                    placeholder="Rất mong nhận được phản hồi của quý khách..."></textarea>
+                <span class="close_fb"><i class="fas fa-times-circle"></i></span>
+                <button type="submit" class="send">Send</button>
+            </form>
+        </div>
+
+
+        <div class="colm1">
+            <div class="payment_info">
+                <div class="text_content">
+                    <h2>Payment Information</h2>
+                    <p><i class="fas fa-user-lock"></i><span>This is a secure 128-bit SSL encrypted payment</span></p>
+                </div>
+                <form action="#">
+                    <div class="form_paypal">
+                        <div class="form_paypal_title">
+                            <input readonly="" tabindex="-1" type="radio" name="payment" value="">
+                            <img src="https://i2.wp.com/techbuzzireland.com/wp-content/uploads/2019/11/paypal-logo.png?fit=672%2C261&ssl=1" alt="">
+                        </div>
+                        <div class="form_paypal_content">
+                            <div class="form-group">
+                                <p><span>*</span> <label for="#">Country</label></p>
+                                <select name="" id="">
+                            <optgroup label="Nhom1">
+                            <option value="">gia tr 1</option>
+                            <option value="">gia tr 2</option>
+                            <option value="">gia tr 3</option>
+                            <option value="">gia tr 1</option>
+                            <option value="">gia tr 2</option>
+                            <option value="">gia tr 3</option>
+                            <option value="">gia tr 1</option>
+                            <option value="">gia tr 2</option>
+                            <option value="">gia tr 3</option>
+                            <option value="">gia tr 1</option>
+                            <option value="">gia tr 2</option>
+                            <option value="">gia tr 3</option>
+                        </optgroup>  
+                        </select>
+                            </div>
+                            <div class="bt">
+                                <a href="#">
+                                    <img src="https://i2.wp.com/techbuzzireland.com/wp-content/uploads/2019/11/paypal-logo.png?fit=672%2C261&ssl=1" alt="">
+                                </a>
+                            </div>
+                            <p>Where applicable, the final sales tax may be added after you complete the transaction.</p>
+                        </div>
+                    </div>
+
+                    <div class="form_credit-card">
+                        <div class="form_title">
+                            <div class="credit_card">
+                                <input readonly="" tabindex="-1" type="radio" name="payment" value="" checked="checked">
+                                <label for="#">Credit Card</label>
+                            </div>
+                            <div class="logo">
+                                <img src="https://pngimg.com/uploads/mastercard/mastercard_PNG16.png" alt="">
+                                <img src="https://seeklogo.com/images/V/visa-logo-6F4057663D-seeklogo.com.png" alt="">
+                                <img src="https://seeklogo.com/images/D/Discover_Card-logo-4BC5D7C02C-seeklogo.com.png" alt="">
+                                <img src="https://i0.wp.com/marketingai.admicro.vn/wp-content/uploads/2018/10/American-Express_Pentagram_Boteco-Design_04-min.jpg?resize=1024%2C768&ssl=1" alt="">
+                            </div>
+                        </div>
+                        <div class="form_content">
+                            <div class="form-group">
+                                <p><span>*</span> <label for="#">Name on Card</label></p>
+                                <input type="email" placeholder="Emily J Smith" name="">
+                            </div>
+                            <div class="form-group">
+                                <p><span>*</span> <label for="#">Card Number</label></p>
+                                <input type="email" placeholder="1234 1234 1234 1234" name="">
+                            </div>
+                            <div class="form-group--pair">
+                                <div class="form-group">
+                                    <p><span>*</span> <label for="#">Expiration Date</label></p>
+                                    <input type="text" placeholder="MM / YY" name="">
+                                </div>
+                                <div class="form-group">
+                                    <p><span>*</span><label for="#">CVC Code
+                                </label><i class="fas fa-question-circle">
+                                    <img src="./images/Capture.PNG" alt="">
+                                </i></p>
+                                    <input type="text" placeholder="CVC" name="">
+                                </div>
+                            </div>
+                            <p>
+                                <input type="checkbox">
+                                <span>Save my billing info for future purchases</span>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="colm2">
+            <div class="order">
+                <h2>Your order</h2>
+                <div class="products">
+                    {{#each session.cart.items}}
+                    <div class="product">
+                        <div class="image">
+                            <img src="/allfood/{{this.item.image}}" alt="">
+                        </div>
+                        <div class="product_detail">
+                            <span>Name: {{this.item.name}}</span>
+                            <span>Qty: {{this.quantity}}</span>
+                            <span>Price: {{this.price}}</span>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+           
+                <div class="total">
+                    <strong>Total</strong>
+                    <strong>${{session.cart.totalPrice}}</strong>
+                </div>
+            </div>
+            <div class="btn_confirm">
+             <button href="#">Confirm: <span>{{session.cart.totalPrice}}</span> 🤑</button>
+            </div>
+        </div>
+    </div>
+
+
+<canvas id="my-canvas"></canvas>
+<script src="/javascripts/index.min.js"></script>
+<script src="/javascripts/cash.js"></script>
+
+

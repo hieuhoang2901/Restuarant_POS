@@ -30,13 +30,36 @@
             aria-haspopup="true" aria-expanded="false">
             {{user.name}}
         </a> 
+        {{#if_eq user.role 'Admin'}}
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="#">User Information</a>
             <a class="dropdown-item" href="/manageUser">Manage User</a>
             <a class="dropdown-item" href="/menu">Manage Menu</a>
             <a class="dropdown-item" href="/manageFeedback">List Information Feedback</a>
-           
+            <a class="dropdown-item" href="/manageOrder">Manage Order</a>
         </div>
+        {{/if_eq}}
+        {{#if_eq user.role 'Customer'}}
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">User Information</a>
+            <a class="dropdown-item" href="/manageOrder">History Order</a>
+        </div>
+        {{/if_eq}}
+
+        {{#if_eq user.role 'Clerk'}}
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">User Information</a>
+                <a class="dropdown-item" href="/manageOrder">Manage Order</a>
+            </div>
+        {{/if_eq}}
+
+        {{#if_eq user.role 'Chef'}}
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">User Information</a>
+            <a class="dropdown-item" href="/manageOrder">Manage Order</a>
+        </div>
+        {{/if_eq}}
+
         <div style="margin: 2rem 0 0 1rem; border-radius: .5rem;">
             <form action='/user/logout' method='post'>
                 <button type='submit' name='logoutr' value='' class="sign-out-btn"> SIGN OUT <i class="fa fa-sign-out"></i></button>
