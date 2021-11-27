@@ -39,14 +39,18 @@
 <div id="view-item-form" >
     <form action="{{this.id}}" method="post">
     {{#each rows}}
-        <div style="display: flex; background-color: rgba(253, 253, 253, 0.7);">
-            <div style="box-sizing: border-box; width: 500px; height: 300px; padding: 1.5rem 8rem"><img style="width: 340px; height: 270px; " src="/allFood/{{this.image}}"></div>
-            <div style="box-sizing: border-box; padding: 1.5rem 2rem 1.5rem 0; width: 410px;">
+        <div style="display: flex; background-color: rgb(255, 255, 255); height:450px;border-radius: 8px; box-shadow: 0px 0px 8px rgb(136, 136, 136)">
+            <div style="box-sizing: border-box; width: 500px; height: 300px; padding: 1.5rem 8rem;margin:auto;"><img style="width: 340px; height: 270px; " src="/allFood/{{this.image}}"></div>
+            <div style="box-sizing: border-box; padding: 1.5rem 2rem 1.5rem 0; width: 410px;margin:auto;">
                 <input name="id" value="{{this.id}}" type="hidden">
-                <h2><span style="font-size: 15px;">Produce name: </span>{{this.name}}</h2>
-                <h3><span style="font-size: 15px;">Category: </span>{{this.type}}</h3>
-                <div style="height: 100px; width: 100%;"><p style="font-size: 15px;"><span>Details: </span>{{this.description}}</p></div>
-                <h3><span style="font-size: 15px;">Price: </span>{{this.price}} VND</h3>
+                <h2><span style="font-size: 15px;">Produce name: </span><span class="view-item-name">{{this.name}}</span></h2>
+                <h3><span style="font-size: 15px;">Category: </span><span class="view-item-type">{{this.type}}</span></h3>
+                <div style="height: 100px; width: 100%;"><p style="font-size: 15px;"><span>Detail: </span><span class="view-item-detail">{{this.description}}</span></p></div>
+                <h3><span style="font-size: 15px;">Price: </span><span class="view-item-price">{{this.price}}đ</span> </h3>
+                <script> // add dau ngan cach so tien
+                    var realPrice = document.getElementsByClassName('view-item-price')[0].innerHTML;
+                    document.getElementsByClassName('view-item-price')[0].innerHTML = realPrice.replace('đ', '').replace('.', '').toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".") + 'đ'
+                </script>
                 <div style="font-size: 15px; margin-top: 1rem;">
                     <span style="font-size: 15px;">Quantity: </span> <input style="border: 1px solid green; width: 50px; height: 30px; font-size:1.7rem; text-align:center;"  name="quantity" type="number" value="1">
                 </div>
@@ -70,8 +74,26 @@
         color: white;
         text-decoration: underline;
     }
+    #view-item-form button {
+        background-color: #192A56;
+        color: white;
+    }
     #view-item-form a:hover{
         font-size: 17px;
+    }
+    .view-item-name {
+        color: #ff0000;
+        font-weight: bold;
+    }
+    /*.view-item-type {
+        font-weight: bold;
+    }
+    .view-item-detail {
+        font-weight: bold;
+    }*/
+    .view-item-price {
+        color: #27AE60;
+        font-weight: bold;
     }
 </style>
 {{!-- <script>
