@@ -4,19 +4,31 @@
 <div class="login">
     <form action="/user/register" method="post" name="form1">
     <div class="form-group">
-        <label for="exampleInputEmail1">Name</label>
-        <input type="name" name="name" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter name" value="">
+        <label for="exampleInputEmail1">Tên</label>
+        <input type="name" name="name" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Nhập tên" value="">
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Email</label>
-        <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" value="">
+        <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Nhập email" value="">
     </div>
     <div class="form-group">
-        <label for="exampleInputEmail1">Password</label>
-        <input type="password" name="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="*********" value="">
+        <label for="exampleInputEmail1">Mật khẩu</label>
+        <input type="password" name="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="********" value="">
     </div>
-    <input type="submit" class="btn btn-primary log-btn" value="Đăng Ký">
-    <a href="auth/login" class="btn btn-success ml-2 register">Đăng Nhập</a>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Xác nhận mật khẩu</label>
+        <input type="password" name="repassword" class="form-control" id="repassword" aria-describedby="emailHelp" placeholder="********" value="">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Địa chỉ</label>
+        <input type="text" name="address" class="form-control" id="address" aria-describedby="emailHelp" placeholder="Nhập địa chỉ" value="">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Số điện thoại</label>
+        <input type="text" name="phonenumber" class="form-control" id="phonenumber" aria-describedby="emailHelp" placeholder="Nhập số điện thoại" value="">
+    </div>
+    <input type="submit" class="btn btn-primary log-btn" value="REGISTER">
+    <a href="auth/login" class="btn btn-success ml-2 register">Login here</a>
     </form>
 </div>
 <style>

@@ -291,7 +291,12 @@
             {{/if_eq}}
         {{/each}}
         </div>
-
+        <script> // add dau ngan cach tien
+            var realPriceArr = document.getElementsByClassName('shop-item-price price');
+            for (var i = 0; i < realPriceArr.length; i++) {
+                realPriceArr[i].innerHTML = realPriceArr[i].innerHTML.replace('đ', '').replace('.', '').toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")
+            }
+        </script>
     </section>
 
     <!-- menu section ends -->
