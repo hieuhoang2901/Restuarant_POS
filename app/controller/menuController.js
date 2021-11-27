@@ -6,7 +6,7 @@ class menuController {
     listFood(req, res, next) {
         foodServices.getAllFood().then(async function(rows) {
             try {
-                res.render('upload', { layout: 'index', rows });
+                res.render('upload', { layout: 'index', rows, user: req.user });
             } catch (err) {
                 console.log(err);
             }
