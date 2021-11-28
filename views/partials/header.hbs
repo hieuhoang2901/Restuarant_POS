@@ -15,8 +15,8 @@
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>
         <i class="fas fa-search" id="search-icon"></i>
-        <a href="#cart" class="fas fa-shopping-cart"
-            onclick="document.getElementById('cart').style.display='block'"></a>
+        <a href="#" class="fas fa-shopping-cart"
+            onclick="callFunctions()"></a>
         {{!-- {{#if user}}
         <a></a>
         {{else}}
@@ -99,3 +99,14 @@
         display: block;
     }
 </style>
+<script>
+    function callFunctions(){
+        var cart = document.getElementById('cart');
+        if(cart){
+            cart.style.display = 'block';
+        }
+        else{
+            window.location = "http://localhost:3000/cart";
+        }
+    }
+</script>
