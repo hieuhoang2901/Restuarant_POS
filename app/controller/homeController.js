@@ -25,6 +25,17 @@ class HomeController {
             }
         });
     }
+    search(req, res, next) {
+        var data = (req.params.data).replace('-', ' ');
+        foodServices.search(data).then(async function(rows) {
+            try {
+                console.log(rows)
+                res.render('searchResult', { layout: 'main', rows, user: req.user);
+            } catch (err) {
+                console.log(err);
+            }
+        });
+    }
 
 
 }

@@ -1,0 +1,227 @@
+<section class="menu" id="menu">
+        <h1 class="heading"> <span> </br> </span> </h1>
+        
+        {{#if_eq rows ""}}
+            <h1 class="heading"> <span> Không tìm thấy kết quả! </span> </h1>
+        {{else}}
+            <h1 class="heading"> <span> Search result: </span> </h1>
+        {{/if_eq}}
+        <div class="image-container">
+        {{#each rows}}
+            <div class="image pizza">
+                <div class="content shop-item">
+                    <div id="{{this.id}}" style="display: none;">{{this.id}}</div>
+                    <p class="shop-item-type" style="display: none;">{{this.type}}</p>
+                    <p class="shop-item-description" style="display: none;">{{this.description}}</p>
+                    <img class="shop-item-image"
+                        src="/allfood/{{this.image}}"
+                        alt="">
+                    <h3 class="shop-item-title" onclick="document.getElementById('item-box').style.display='block'">{{this.name}}</h3>
+                    <p>{{this.description}}</p>
+                    <div class="shop-item-details" style="margin-top: 1rem;">
+                        <div class="">
+                            <span class="shop-item-price price">{{this.price}}</span>
+                            VND
+                        </div>
+                        <button onclick="window.location.href='/item/{{this.id}}'" class="btn shop-item-button" type="button" style="margin-top: 0 !important; margin-bottom: 1rem;">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+        </div>
+        <script> // add dau ngan cach tien
+            var realPriceArr = document.getElementsByClassName('shop-item-price price');
+            for (var i = 0; i < realPriceArr.length; i++) {
+                realPriceArr[i].innerHTML = realPriceArr[i].innerHTML.replace('đ', '').replace('.', '').toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")
+            }
+        </script>
+    </section>
+    
+   <style>
+        #item-box {
+            display: none;
+            z-index: 1000000000000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        #item-detail {
+            position: relative;
+            display: block;
+            box-sizing: border-box;
+            width: 60rem;
+            background-color: rgba(123, 231, 231, 0.5);
+            /* font-size: 15px; */
+            /* line-height: 1.6; */
+            padding: 2rem;
+            padding-top: 1rem;
+            margin: 0 auto;
+            margin-top: 4rem;
+            border-radius: 0.5rem;
+        }
+
+        #detail-header {
+            font-size: 2.5rem;
+        }
+
+        #detail-header h2 {
+            margin-top: 0;
+        }
+
+        .fa-shopping-cart {
+            margin-right: 1rem;
+        }
+
+        #item-close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            float: right;
+            font-size: 2rem;
+            width: 3rem;
+            align-items: center;
+            text-align: center;
+        }
+
+        #item-close:hover {
+            cursor: pointer;
+            background-color: red;
+            border-radius: 0.5rem;
+        }
+
+        #detail-content {
+            font-weight: 600;
+        }
+
+        #item-img {
+            flex: 1 1 40%;
+            width: 40%;
+            height: 40%;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(213, 213, 231, 1);
+        }
+
+        #item-detail-content {
+            flex: 1 1 60%;
+            padding-left: 2rem;
+        }
+
+
+        /* #item-id {} */
+
+        #item-name {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        #item-type {
+            margin-top: 0.5rem;
+        }
+
+        #item-price {
+            margin-top: 1rem;
+        }
+
+        #item-quantity {
+            margin-top: 1rem;
+        }
+
+        #item-description {
+            margin-top: 1rem;
+        }
+
+        #item-quantity input {
+            width: 3rem;
+            text-align: center;
+        }
+
+        #item-note {
+            margin-top: 1rem;
+        }
+
+        #item-note input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #add-item-btn {
+            margin-top: 1rem;
+            width: 100%;
+            font-size: 20px;
+        }
+
+        .shop-item-title:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        if (document.readyState == 'loading') {
+            document.addEventListener('DOMContentLoaded', ready)
+        } else {
+            ready()
+        }
+
+        function ready() {
+            var input = document.getElementById('quantity-input')
+            input.addEventListener('change', itemQuantityChanged)
+
+            var detailBtns = document.getElementsByClassName('shop-item-title')
+            for (var i = 0; i < detailBtns.length; i++) {
+                var button = detailBtns[i]
+                button.addEventListener('click', detailClicked)
+            }
+        }
+
+        function itemQuantityChanged(event) {
+            var input = event.target
+            if (isNaN(input.value) || input.value <= 0) {
+                input.value = 1
+            }
+            updateTotal()
+        }
+
+        function detailClicked(event) {
+            var button = event.target
+            var item = button.parentElement
+            var title = item.getElementsByClassName('shop-item-title')[0].innerText
+            var iType = item.getElementsByClassName('shop-item-type')[0].innerText
+            var price = item.getElementsByClassName('shop-item-price')[0].innerText
+            var description = item.getElementsByClassName('shop-item-description')[0].innerText
+            var imageSrc = item.getElementsByClassName('shop-item-image')[0].src
+            addItem(title, iType, description, price, imageSrc)
+            {{!-- updateTotal() --}}
+        }
+
+        function addItem(title, itype, description, price, img) {
+            var item = document.getElementById('item-detail')
+            item.querySelector('#item-img').src = img;
+            item.querySelector('#quantity-input').value = 1
+            var itemName = item.querySelector('#item-name')
+            itemName.querySelector('span').innerText = title;
+            var itemType = item.querySelector('#item-type')
+            itemType.querySelector('span').innerText = itype
+            var itemPrice = item.querySelector('#item-price')
+            itemPrice.querySelector('span').innerText = price
+            var itemDescription = item.querySelector('#item-description')
+            itemDescription.querySelector('span').innerText = description
+            updateTotal()
+        }
+        function updateTotal() {
+            console.log("update")
+            var item = document.getElementById('item-detail')
+            var itemPrice = item.querySelector('#item-price')
+            var price = itemPrice.querySelector('span').innerText
+            var quantity = item.querySelector('#quantity-input').value
+            var total = price * quantity
+            total = Math.round(total * 100) / 100
+            item.querySelector('#total-price').innerText = total
+        }
+    </script>

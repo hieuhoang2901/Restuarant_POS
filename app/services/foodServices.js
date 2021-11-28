@@ -22,6 +22,25 @@ let findFoodById = (id) => {
     });
 };
 
+let search = (data) => {
+    return new Promise((resolve, reject) => {
+        try {
+            data = '%' + data + '%';
+            connection.query(
+                ' SELECT * FROM `food` WHERE `name` LIKE ?  ', data,
+                function(err, rows) {
+                    if (err) {
+                        reject(err)
+                    }
+                    resolve(rows);
+                }
+            );
+        } catch (err) {
+            reject(err);
+        }
+    });
+};
+
 //function get all food from database
 let getAllFood = () => {
     return new Promise((resolve, reject) => {
@@ -121,5 +140,6 @@ module.exports = {
     addNewFood: addNewFood,
     getFood: getFood,
     updateFood: updateFood,
-    deleteFood: deleteFood
+    deleteFood: deleteFood,
+    search: search
 };
