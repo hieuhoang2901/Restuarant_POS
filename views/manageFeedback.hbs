@@ -377,10 +377,8 @@
                     <thead>
                         <tr>
                             <th>OrderID</th>
-                            <th>Dish List</th>
                             <th>User Name</th>
                             <th>Feedback</th>
-                            <th>Star</th>
                             <th>Show</th> 
                         </tr>
                     </thead>
@@ -388,19 +386,16 @@
                         {{#each rows}}
                         <tr class="table-item">
                             <td class="item-content">{{this.orderID}}</td>
-                            <td class="item-content">{{this.dishList}}</td>
                             <td class="item-content">{{this.userName}}</td>
                             <td class="item-content">{{this.feedback}}</td>
-                            <td class="item-content">5/5</td>
                             <td>
                                 <a onclick="showmore('order'+ {{this.orderID}})" class="showmore"> Detail/Hide </a>
                             </td>
                         </tr>
                         <tr class='hidden' style="display: none;" id = 'order{{this.orderID}}'>
                                 <td colspan='3'>
-                                    <div><b>Email: </b></div>
-                                    <div><b>Địa chỉ: </b></div>
-                                    <div><b>Số điện thoại: </b></div>
+                                    <div><b>Total cost: {{this.totalCost}}</b></div>
+                                    <div><b>Order status: {{this.orderStatus}}</b></div>
                                 </td>
                         </tr>
                     {{/each}}
