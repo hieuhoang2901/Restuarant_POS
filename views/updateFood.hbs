@@ -22,11 +22,13 @@
     <div>
         <label for="type_food">Type: </label>
         <select name="type_food" id="foodtype-selection">
-            <option id = "breakfast" value="breakfast">breakfast</option>
-            <option id = "dinner" value="dinner">dinner</option>
-            <option id = "dessert" value="dessert">dessert</option>
-            <option id = "juice" value="juice">juice</option>
-            <option id = "lunch" value="lunch">lunch</option>
+            <option id="pizza" value="pizza">Pizza</option>
+            <option id="starter" value="starter">Starter</option>
+            <option id="salad" value="salad">Salad</option>
+            <option id="paster" value="pasta">Pasta</option>
+            <option id="main" value="mains">Chef's Mains</option>
+            <option id="steaks_ribs" value="steaks_ribs">Steaks & ribs</option>
+            <option id="drinks" value="drinks">Drinks</option>
         </select>
         <script> 
             document.getElementById('{{this.type}}').selected = true;

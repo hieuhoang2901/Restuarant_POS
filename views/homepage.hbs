@@ -179,19 +179,20 @@
         <h1 class="heading"> <span> Menu restaurant </span> </h1>
 
         <ul class="controls">
-            <li class="buttons button-active" data-filter="all">all</li>
-            <li class="buttons" data-filter="breakfast">breakfast</li>
-            <li class="buttons" data-filter="lunch">lunch</li>
-            <li class="buttons" data-filter="dinner">dinner</li>
-            <li class="buttons" data-filter="dessert">dessert</li>
-            <li class="buttons" data-filter="juice">juice</li>
-
+            <li class="buttons button-active" data-filter="all">All</li>
+            <li class="buttons" data-filter="pizza">Pizza</li>
+            <li class="buttons" data-filter="starter">Starter</li>
+            <li class="buttons" data-filter="salad">Salad</li>
+            <li class="buttons" data-filter="pasta">Pasta</li>
+            <li class="buttons" data-filter="mains">Chef's Mains</li>
+            <li class="buttons" data-filter="steaks_ribs">Steaks & ribs</li>
+            <li class="buttons" data-filter="drinks">Drinks</li>
         </ul>
    
         <div class="image-container">
         {{#each rows}}
-          {{#if_eq this.type  'breakfast'}}
-            <div class="image breakfast">
+          {{#if_eq this.type  'pizza'}}
+            <div class="image pizza">
                 <div class="content shop-item">
                     <div id="{{this.id}}" style="display: none;">{{this.id}}</div>
                     <p class="shop-item-type" style="display: none;">{{this.type}}</p>
@@ -211,8 +212,8 @@
                 </div>
             </div>
         {{/if_eq}}
-        {{#if_eq this.type 'lunch'}}
-            <div class="image lunch">
+        {{#if_eq this.type 'starter'}}
+            <div class="image starter">
                 <div class="content shop-item">
                     <div id="{{this.id}}" style="display: none;">{{this.id}}</div>
                     <p class="shop-item-type" style="display: none;">{{this.type}}</p>
@@ -230,8 +231,8 @@
                 </div>
             </div>
         {{/if_eq}}
-        {{#if_eq this.type 'dinner'}}
-            <div class="image dinner">
+        {{#if_eq this.type 'salad'}}
+            <div class="image salad">
                 <div class="content shop-item">
                     <div id="{{this.id}}" style="display: none;">{{this.id}}</div>
                     <p class="shop-item-type" style="display: none;">{{this.type}}</p>
@@ -249,8 +250,8 @@
                 </div>
             </div>
             {{/if_eq}}
-        {{#if_eq this.type 'dessert'}}
-            <div class="image dessert">
+        {{#if_eq this.type 'pasta'}}
+            <div class="image pasta">
                 <div class="content shop-item">
                     <div id="{{this.id}}" style="display: none;">{{this.id}}</div>
                     <p class="shop-item-type" style="display: none;">{{this.type}}</p>
@@ -268,8 +269,50 @@
                 </div>
             </div>
             {{/if_eq}}
-        {{#if_eq this.type 'juice'}}
-            <div class="image juice">
+        {{#if_eq this.type 'mains'}}
+            <div class="image mains">
+                <div class="content shop-item">
+                    <div id="{{this.id}}" style="display: none;">{{this.id}}</div>
+                    <p class="shop-item-type" style="display: none;">{{this.type}}</p>
+                    <p class="shop-item-description" style="display: none;">{{this.description}}</p>
+                    <img class="shop-item-image"
+                        src="allfood/{{this.image}}"
+                        alt="">
+                    <h3 class="shop-item-title" onclick="document.getElementById('item-box').style.display='block'">{{this.name}}</h3>
+                    <p>{{this.description}}</p>
+                    <div class="shop-item-details" style="margin-top: 1rem;">
+                        <div class="">
+                            <span class="shop-item-price price">{{this.price}}</span>
+                            VND
+                        </div>
+                        <button onclick="window.location.href='item/{{this.id}}'" class="btn shop-item-button" type="button" style="margin-top: 0 !important; margin-bottom: 1rem;">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+            {{/if_eq}}
+        {{#if_eq this.type 'steaks_ribs'}}
+            <div class="image steaks_ribs">
+                <div class="content shop-item">
+                    <div id="{{this.id}}" style="display: none;">{{this.id}}</div>
+                    <p class="shop-item-type" style="display: none;">{{this.type}}</p>
+                    <p class="shop-item-description" style="display: none;">{{this.description}}</p>
+                    <img class="shop-item-image"
+                        src="allfood/{{this.image}}"
+                        alt="">
+                    <h3 class="shop-item-title" onclick="document.getElementById('item-box').style.display='block'">{{this.name}}</h3>
+                    <p>{{this.description}}</p>
+                    <div class="shop-item-details" style="margin-top: 1rem;">
+                        <div class="">
+                            <span class="shop-item-price price">{{this.price}}</span>
+                            VND
+                        </div>
+                        <button onclick="window.location.href='item/{{this.id}}'" class="btn shop-item-button" type="button" style="margin-top: 0 !important; margin-bottom: 1rem;">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+            {{/if_eq}}
+        {{#if_eq this.type 'drinks'}}
+            <div class="image drinks">
                 <div class="content shop-item">
                     <div id="{{this.id}}" style="display: none;">{{this.id}}</div>
                     <p class="shop-item-type" style="display: none;">{{this.type}}</p>
