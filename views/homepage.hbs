@@ -67,12 +67,23 @@
 
     <!-- search form  -->
 
-    <form action="" id="search-form">
+    <form id="search-form" onkeydown="return event.key != 'Enter';">
         <input type="search" placeholder="search here..." name="" id="search-box">
-        <label for="search-box" class="fas fa-search"></label>
+        <label for="search-box" class="fas fa-search" type="submit" onclick="redirectToSearch()"></label>
         <i class="fas fa-times" id="close"></i>
     </form>
 
+    <script>
+        function redirectToSearch() {
+            var searchKey = document.getElementById('search-box').value;
+            if(searchKey == "") alert("Bạn phải nhập gì đó")
+            else
+            {
+                searchKey = searchKey.replace(' ', '-');
+                window.location.href = "/search/" + searchKey;
+            }
+        }
+    </script>
     <!-- home section starts  -->
 
     <section class="home" id="home">
