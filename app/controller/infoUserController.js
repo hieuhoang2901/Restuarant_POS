@@ -7,7 +7,7 @@ class infoUserController {
         var id = parseInt(req.params.id);
         infoUserServices.getUser(id).then(async function(rows) {
             try {
-                res.render('userInfo', { layout: 'index', rows });
+                res.render('userInfo', { layout: 'main', rows, user: req.user });
             } catch (err) {
                 console.log(err);
             }
@@ -27,7 +27,7 @@ class infoUserController {
         console.log(currentUser)
         infoUserServices.updateUser(currentUser).then(async function(rows) {
             try {
-                res.redirect('/infoUser/'+currentUser.id);
+                res.redirect('/infoUser/' + currentUser.id);
             } catch (err) {
                 console.log(err);
             }
