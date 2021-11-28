@@ -1,17 +1,24 @@
-const item = document.querySelector(".item_header a span");
-const drop = document.querySelector(".drop_down");
-const drop_down = document.querySelector(".drop_down span:first-child");
-console.log(drop_down);
-const drop_down2 = document.querySelector(".drop_down span:last-child");
-console.log(drop_down2);
-item.addEventListener("click", () => {
-    console.log("123")
-    drop.classList.toggle("active");
-})
-drop_down.addEventListener("click", () => {
-    item.innerHTML = drop_down.textContent;
-})
+const items = document.querySelectorAll(".item_header p span");
+const drop_down = document.querySelectorAll(".drop_down");
 
-drop_down2.addEventListener("click", () => {
-    item.innerHTML = drop_down2.textContent;
+
+
+
+items.forEach((item, index) => {
+    item.addEventListener("mouseover", () => {
+        drop_down[index].classList.add("active");
+        drop_down[index].addEventListener("mouseleave", () => {
+            drop_down[index].classList.remove("active");
+        })
+    })
+
+})
+drop_down.forEach((drop, index) => {
+    drop.querySelector("span:first-child").addEventListener("click", () => {
+        items[index].innerHTML = drop.querySelector("span:first-child").textContent
+    })
+
+    drop.querySelector("span:last-child").addEventListener("click", () => {
+        items[index].innerHTML = drop.querySelector("span:last-child").textContent
+    })
 })
