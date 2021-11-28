@@ -31,7 +31,7 @@ var manageFeedbackRouter = require('./routes/manageFeedback');
 var itemRouter = require('./routes/item');
 var cartRouter = require('./routes/cart');
 var paymentRouter = require('./routes/payment')
-
+var userinfoRouter = require('./routes/infoUser');
 var manageOrderRouter = require('./routes/manageOrder')
 
 var app = express();
@@ -108,6 +108,7 @@ app.use('/manageFeedback', manageFeedbackRouter)
 app.use('/item', itemRouter);
 app.use('/cart', cartRouter);
 app.use('/payment', paymentRouter);
+app.use('/infoUser', userinfoRouter);
 
 app.use('/manageOrder', manageOrderRouter);
 // catch 404 and forward to error handler
