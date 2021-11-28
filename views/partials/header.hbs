@@ -32,7 +32,7 @@
         </a> 
         {{#if_eq user.role 'Admin'}}
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#">User Information</a>
+            <a class="dropdown-item" href="/infoUser/{{user.id}}">User Information</a>
             <a class="dropdown-item" href="/manageUser">Manage User</a>
             <a class="dropdown-item" href="/menu">Manage Menu</a>
             <a class="dropdown-item" href="/manageFeedback">List Information Feedback</a>
