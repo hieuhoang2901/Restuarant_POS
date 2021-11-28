@@ -126,7 +126,7 @@
                         <div class="product_detail">
                             <span>Name: {{this.item.name}}</span>
                             <span>Qty: {{this.quantity}}</span>
-                            <span>Price: {{this.price}}</span>
+                            <span>Price: {{this.price}} VND</span>
                         </div>
                     </div>
                     {{/each}}
@@ -134,11 +134,11 @@
            
                 <div class="total">
                     <strong>Total</strong>
-                    <strong>VND{{session.cart.totalPrice}}</strong>
+                    <strong>{{session.cart.totalPrice}} VND</strong>
                 </div>
             </div>
             <div class="btn_confirm">
-             <button href="#">Confirm: <span>{{session.cart.totalPrice}}</span> 🤑</button>
+             <button href="#">Confirm: <span>{{session.cart.totalPrice}} VND</span> 🤑</button>
             </div>
         </div>
     </div>
