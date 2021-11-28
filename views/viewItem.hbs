@@ -54,13 +54,17 @@
                 <div style="font-size: 15px; margin-top: 1rem;">
                     <span style="font-size: 15px;">Quantity: </span> <input style="border: 1px solid green; width: 50px; height: 30px; font-size:1.7rem; text-align:center;"  name="quantity" type="number" value="1">
                 </div>
-                <button style="font-size: 17px; padding: 0.5rem 1rem; margin: 1rem 2rem 0 0; border-radius: 0.5rem"  type="submit"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                <button onclick="callAlert()" style="font-size: 17px; padding: 0.5rem 1rem; margin: 1rem 2rem 0 0; border-radius: 0.5rem"  type="submit"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
                 <a href="/#menu" style="font-size: 15px; border-bottom: 2px solid var(--green);">Back to Menu</a>
             </div>
         </div>
     {{/each}}
     </form>
 </div>
+<script>
+    function callAlert(){
+        alert("Đã Thêm Món Thành Công");
+    }
 <style>
     #view-item-form{
         margin-top: 67.5px;
