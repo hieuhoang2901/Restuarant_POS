@@ -30,7 +30,7 @@ class HomeController {
         foodServices.search(data).then(async function(rows) {
             try {
                 console.log(rows)
-
+		res.render('searchResult', { layout: 'main', rows, user: req.user});
 
             } catch (err) {
                 console.log(err);
