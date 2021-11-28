@@ -26,13 +26,13 @@
     {{#if user}}
     <div >
     <div class="dropdown show" style="display:inline-flex;">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+        <a class="btn btn-secondary dropdown-toggle"  style="margin-top: 1rem" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             {{user.name}}
         </a> 
         {{#if_eq user.role 'Admin'}}
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#">User Information</a>
+            <a class="dropdown-item" href="/infoUser/{{user.id}}">User Information</a>
             <a class="dropdown-item" href="/manageUser">Manage User</a>
             <a class="dropdown-item" href="/menu">Manage Menu</a>
             <a class="dropdown-item" href="/manageFeedback">List Information Feedback</a>
@@ -41,21 +41,21 @@
         {{/if_eq}}
         {{#if_eq user.role 'Customer'}}
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#">User Information</a>
+            <a class="dropdown-item" href="/infoUser/{{user.id}}">User Information</a>
             <a class="dropdown-item" href="/manageOrder">History Order</a>
         </div>
         {{/if_eq}}
 
         {{#if_eq user.role 'Clerk'}}
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">User Information</a>
+                <a class="dropdown-item" href="/infoUser/{{user.id}}">User Information</a>
                 <a class="dropdown-item" href="/manageOrder">Manage Order</a>
             </div>
         {{/if_eq}}
 
         {{#if_eq user.role 'Chef'}}
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#">User Information</a>
+            <a class="dropdown-item" href="/infoUser/{{user.id}}">User Information</a>
             <a class="dropdown-item" href="/manageOrder">Manage Order</a>
         </div>
         {{/if_eq}}

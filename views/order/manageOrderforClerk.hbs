@@ -5,10 +5,10 @@
         <div class="item">
             <div class="item_header">
                 <p><strong>OrderID : {{this.orderID}}</strong></p>
-                <a href="#">
+                <p href="#">
                 <img src="/images/car.png" alt="">
                     <span>Đang chuẩn bị</span>
-                </a>
+                </p>
                 <div class="drop_down">
                     <input class="orderID" type="hidden" value="{{this.orderID}}">
                     <span class="preparing">Đang chuẩn bị</span>
@@ -25,7 +25,7 @@
                     <div class="qty">x<span>{{this.quantity}}</span> </div>
                 </div>
                 <div class="price_item">
-                    <span>{{this.price}} $</span>
+                    <span>{{this.price}} VND</span>
                 </div>
             </div>
             {{/each}}

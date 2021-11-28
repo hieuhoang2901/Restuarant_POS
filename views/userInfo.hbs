@@ -1,0 +1,171 @@
+<div class="update-form" id="info">
+    <h3>Thông tin người dùng</h3>
+    <form >
+    {{#each rows}}
+    <input type="hidden" value="{{this.id}}" name="id">
+    <div>
+        Name: 
+        <input type="text" class="input-box" value="{{this.name}}" disabled>
+    </div>
+    </br>
+    <div>
+        Email: 
+        <input type="text" class="input-box" value="{{this.email}}" disabled>
+    </div>
+    </br>
+    <div>
+        Password: 
+        <input type="password"class="input-box" value="{{this.password}}" disabled>
+    </div>
+    </br>
+    <div>
+        Address: 
+        <input type="text" class="input-box" value="{{this.address}}" disabled>
+    </div>
+    </br>
+    <div>
+        Phone Number: 
+        <input type="text" class="input-box" value="{{this.phoneNumber}}" disabled>
+    </div>
+    </br>
+    <button class="mybtn submit-button" onclick="editfunc()" type="button">Chỉnh sửa</button>
+    <a href="/">
+        <input type="button" class="mybtn cancel-button" value="Trở về" />
+    </a>
+    {{/each}}
+    </form>
+</div>
+
+
+<div class="update-form" id="editinfo">
+    <h3>Chỉnh sửa thông tin</h3>
+    {{#each rows}}
+    <form method="POST" action="/infoUser/{{this.id}}">
+    
+    <input type="hidden" value="{{this.id}}" name="id">
+    <div>
+        Name: 
+        <input type="text" class="input-box" name="userName" value="{{this.name}}">
+    </div>
+    </br>
+    <div>
+        Email: (Can not change)
+        <input type="text" class="input-box" name="userEmail"  value="{{this.email}}" readonly="true">
+    </div>
+    </br>
+    <div>
+        Password: 
+        <input type="text" class="input-box" name="userPassword"  value="{{this.password}}">
+    </div>
+    </br>
+    <div>
+        Address: 
+        <input type="text" class="input-box" name="userAddress"  value="{{this.address}}">
+    </div>
+    </br>
+    <div>
+        Phone Number: 
+        <input type="text" class="input-box" name="userPhone"  value="{{this.phoneNumber}}">
+    </div>
+    </br>
+    <input type="hidden" value="{{this.role}}" name="userRole">
+    <a>
+        <input type="submit" class="mybtn submit-button" value="Save" />
+    </a>
+    <button class="mybtn submit-button" onclick="editfunc1()" type="button">Cancel</button>
+    
+    </form>
+    {{/each}}
+</div>
+
+
+<style>
+    #editinfo{
+      display: none;
+    }
+    .choosen-input {
+        margin: 20px 10px;
+        vertical-align: middle;
+    }
+    .input-box {
+        border: none;
+        height: 30px;
+        border-radius: 2px;
+        width: 100%;
+        background-color: antiquewhite;
+    }
+    .mybtn {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 8px 8px;
+        color: white;
+        border: none;
+        border-radius: 2px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        cursor: pointer;
+    }
+    .submit-button {
+        background-color: black;
+    }
+    .submit-button:hover {
+        background-color: rgb(58, 53, 53);
+    }
+    .cancel-button {
+        background-color: #da1c2e;
+    }
+    .cancel-button:hover {
+        background-color: #dd4756;
+    }
+    .update-form h3 {
+        text-align: center;
+    }
+    .update-form {
+        color: white;
+        width: 400px;
+        height: 460px;
+        background-color: #67997d;
+        align-items: center;
+        margin: 6.75rem auto 1.5rem auto;
+        padding: 1rem;
+        border-radius: 5px;
+    }
+    .update-form img{
+        float: right;
+    }
+    .update-form button{
+        float: right;
+        background-color: #72b18e;
+        border: none;
+        border-radius: 6px;
+        color: white;
+        padding: 10px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>
+
+
+<script>
+    var loadFile = function (event) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('output');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    };
+    function editfunc(){
+      document.getElementById("editinfo").style.display="block";
+      document.getElementById("info").style.display="none";
+    }
+
+    function editfunc1(){
+      document.getElementById("editinfo").style.display="none";
+      document.getElementById("info").style.display="block";
+    }
+
+</script>
