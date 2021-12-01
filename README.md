@@ -7,9 +7,9 @@
 
 ## List of contributors: 
 1. NgoaLong <phu.nguyen0808@hcmut.edu.vn>
-2. KuangHcmUT <quang.nguyenqnvnbk@hcmut.edu.vn>
-3. BuiXuanThong <akirakuma5@gmail.com>
+2. KuangHcmUT <quang.nguyenqnvnbk@hcmut.edu.vn> 
+3. BuiXuanThong <akirakuma5@gmail.com> <thong.bui1123@hcmut.edu.vn>
 4. Thiennguuyen <thien.nguyenbkhcm2k1@hcmut.edu.vn>
-5. tienle2048 <89031447+tienle2048@users.noreply.github.com>
-6. hieuhoang2901 <vanhieu290101@gmail.com>
+5. tienle2048 <89031447+tienle2048@users.noreply.github.com> 
+6. hieuhoang2901 <vanhieu290101@gmail.com> <hieu.hoang2901@hcmut.edu.vn>
 7. Tin Phan <tin.phanbk19@hcmut.edu.vn>
